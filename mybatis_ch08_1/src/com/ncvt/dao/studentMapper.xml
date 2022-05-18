@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ncvt.Mapper.Student">
+	
+
+	<!-- type类型 就是实体类 -->
+	<resultMap type="com.ncvt.domain.Student" id="studentResultMap">
+		<id column="stu_id" property="stuId" 	/>
+		<result column="stu_name" property="stuName" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result column="stu_birthdate" property="stuBirthdate" jdbcType="DATE" javaType="java.util.Date"/>
+		<result column="stu_phone" property="stuPhone" jdbcType="VARCHAR" javaType="java.lang.String"/>	
+	</resultMap>
+	
+	
+
+	<select id="queryByCondition" parameterType="com.ncvt.domain.Student"  resultMap="studentResultMap">
+		<!-- -->
+		select * from student where 1=1
+		<if test="stuName != null and stuName!= ''">
+			and stu_name like '%${stuName}%'
+		</if>
+		
+		<if test="stuBirthdate != null">
+			and stu_birthdate=#{stuBirthdate}
+		</if>
+		
+		
+	</select> 
+	
+	<!-- 多条件查询 -->
+	
+	<select id="queryByCondition2" parameterType="com.ncvt.domain.Student"  resultMap="studentResultMap">
+		<!-- -->
+		select * from student where 1=1
+		
+		<choose>
+			<when test="stuName != null and stuName!= ''">
+				and stu_name like CONCAT('%',#{stuName},'%')
+			</when>
+			
+			<when test="stuBirthdate != null">
+				and stu_birthdate=#{stuBirthdate}
+			</when>
+			
+			<otherwise>
+				and stu_phone = #{stuPhone}
+			</otherwise>
+			
+		</choose>
+		
+	</select> 
+	
+	
+	<select id="queryByCondition3" parameterType="com.ncvt.domain.Student"  resultMap="studentResultMap">
+		select * from student
+		<where>
+			<if  test="stuName != null and stuName!= ''">
+				and stu_name like CONCAT('%',#{stuName},'%')
+			</if>
+			
+			<if test="stuBirthdate != null">
+				and stu_birthdate=#{stuBirthdate}
+			</if>
+			
+		</where>
+	</select> 
+	
+	
+	<update id="updateByCondtion">
+		update student
+		<set>
+		<if test="stuName != null and stuName!= ''">
+			stu_name=#{stuName},
+		</if>
+		
+		<if test="stuBirthdate != null">
+			stu_birthdate=#{stuBirthdate},
+		</if>
+		
+		<if test="stuPhone != null and stuPhone != null">
+			stu_phone=#{stuPhone}
+		</if>
+		</set>
+		where stu_id=#{stuId}	
+	</update>
+	
+	
+	<select id="queryByCondition4" parameterType="com.ncvt.domain.Student"  resultMap="studentResultMap">
+		select * from student
+		<trim prefix="where" prefixOverrides="and|or"> <!-- 注意这个时竖线不是斜线 | / -->
+		<if test="stuName != null and stuName!= ''">
+			and stu_name like CONCAT('%',#{stuName},'%')
+		</if>
+		
+		<if test="stuBirthdate != null">
+			or stu_birthdate=#{stuBirthdate}
+		</if>
+		</trim>
+	</select>
+	
+	
+	<update id="updateByCondtion2">
+		update student
+		<trim prefix="set" suffixOverrides=",">
+		<if test="stuName != null and stuName!= ''">
+			stu_name=#{stuName},
+		</if>
+		
+		<if test="stuBirthdate != null">
+			stu_birthdate=#{stuBirthdate},
+		</if>
+		
+		<if test="stuPhone != null and stuPhone != null">
+			stu_phone=#{stuPhone}
+		</if>
+		</trim>
+		where stu_id=#{stuId}	
+	</update>
+	
+	
+	<!-- foreach -->
+	<select id="queryByInArray" resultMap="studentResultMap">
+	select * from student
+	<if test="array.length>0">
+		where stu_id in
+		<foreach collection="array" index="i" item="stuId" open="(" close=")" separator=",">
+		#{stuId}
+		</foreach>
+	</if>
+	</select>
+	
+	<!-- 传入需遍历的集合类型 是List集合 -->
+	<select id="queryByInList" resultMap="studentResultMap">
+	select * from student
+	<if test="list.size()>0">
+		where stu_id in
+		<foreach collection="list" index="i" item="stuId" open="(" close=")" separator=",">
+		#{stuId}
+		</foreach>
+	</if>
+	
+	</select>
+	
+	
+	
+	<!-- 传入需遍历的集合类型 是Map集合 -->
+	<select id="queryByInMap" resultMap="studentResultMap">
+	select * from student
+	<if test="key1.size()">
+		where stu_id in
+		<foreach collection="key1" index="i" item="stuId" open="(" close=")" separator=",">
+		#{stuId}
+		</foreach>
+	</if>
+	</select>
+	
+	
+	<sql id="studentColumns">
+		 stu_id,stu_name,stu_birthdate,stu_phone
+	</sql>
+	
+	<select id="selectStudent"  resultMap="studentResultMap">
+	select <include refid="studentColumns"/> from student
+	</select>
+	
+
+</mapper>

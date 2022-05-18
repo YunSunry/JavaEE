@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="address" class="com.ncvt.entity.Address">
+        <property name="prov" value="广西壮族自治区"></property>
+        <property name="city" value="南宁"></property>
+        <property name="street" value="石埠"></property>
+    </bean>
+    
+    
+    <bean id="user" class="com.ncvt.entity.User">
+        <property name="id" value="1001"></property>
+        <property name="name" value="Tom"></property>
+        <property name="age" value="20"></property>
+        
+         <property name="address">
+         <!-- 内部bean -->
+        	<bean id="address" class="com.ncvt.entity.Address">
+		        <property name="prov" value="山东省"></property>
+		        <property name="city" value="济南市"></property>
+		        <property name="street" value="历下区"></property>
+    		</bean>
+        	 	
+        </property>
+        
+        
+        
+        <property name="membersArray">
+        	<list>
+        		<value>哥哥</value>
+        		<value>妹妹</value>
+        		<value>父亲</value>
+        		<value>母亲</value>
+        	</list> 	
+        </property>
+        
+        <property name="carsList">
+        	<list>
+        		<value>小车</value>
+        		<value>电动车</value>
+        		<value>小电驴</value>
+        		<value>自行车</value>
+        	</list> 	
+        </property>
+        
+        <property name="bookSet">
+        	<set>
+        		<value>SSM</value>
+        		<value>Java</value>
+        		<value>Flutter</value>
+        		<value>安卓高级开发</value>
+        	</set> 	
+        </property>
+        
+        
+          <property name="scoreMap">
+        	<map>
+        		<entry key="java" value="90"></entry>
+        		<entry key="Android" value="100"></entry>
+        	</map> 	
+        </property>
+        
+        <property name="petPros">
+        	<props>
+        		<prop key="猫">猫</prop>
+        		<prop key="修狗">修狗</prop>
+        	</props>
+        </property>
+        
+
+    </bean>
+
+
+</beans>

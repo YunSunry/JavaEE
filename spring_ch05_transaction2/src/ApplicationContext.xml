@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx
+         http://www.springframework.org/schema/tx/spring-tx.xsd
+          http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- 数据库源配置 -->
+		<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<!-- 属性赋值 -->
+			<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+			<property name="url" value="jdbc:mysql://localhost/mydb"></property>
+			<property name="username" value="root"></property>
+			<property name="password" value="1234"></property>
+		</bean>
+		
+    <!-- 配置事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    	<property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <!-- 配置Jdbc模板 -->
+    <bean id="JdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+    	<property name="dataSource" ref="dataSource"></property>
+    </bean>
+    
+   	<bean id="accountDao" class="com.ncvt.transaction.AccountDaoImpl">
+   	<!-- 将 transactionManager、JdbcTemplate bean 注入到dao实例中 -->
+   		<property name="JdbcTemplate" ref="JdbcTemplate"></property>
+   	</bean>
+   	
+   	<!-- 配置织入的通知 -->
+   	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+   		<tx:attributes>
+   			<tx:method name="*" propagation="REQUIRED" isolation="DEFAULT" read-only="false"></tx:method>
+   		</tx:attributes>
+   	</tx:advice>
+   	
+   	
+   	<aop:config>
+   		<aop:pointcut expression="execution(* com.ncvt.transaction.AccountDaoImpl.*(..))" id="txpointcut"/>
+   		<aop:advisor advice-ref="txAdvice" pointcut-ref="txpointcut"/>
+   	</aop:config>
+
+		
+		
+		
+</beans>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ncvt.Mapper.Student">
+	<!-- namespace 为命名空间 这个映射文件是用来写sql操作数据的 -->
+	<insert id="insertStudent" parameterType="com.ncvt.domain.Student">
+		insert into student (stu_name,stu_birthdate,stu_phone)
+		value(#{stuName},#{stuBirthdate},#{stuPhone})
+	</insert>
+	
+	
+</mapper>

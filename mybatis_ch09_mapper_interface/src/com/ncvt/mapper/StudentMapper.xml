@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ncvt.mapper.StudentMapper">
+	
+
+	<!-- type类型 就是实体类 -->
+	<resultMap type="com.ncvt.domain.Student" id="studentResultMap">
+		<id column="stu_id" property="stuId" 	/>
+		<result column="stu_name" property="stuName" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result column="stu_birthdate" property="stuBirthdate" jdbcType="DATE" javaType="java.util.Date"/>
+		<result column="stu_phone" property="stuPhone" jdbcType="VARCHAR" javaType="java.lang.String"/>	
+	</resultMap>
+	
+	
+
+	<select id="queryByCondition" parameterType="com.ncvt.domain.Student"  resultMap="studentResultMap">
+		<!-- -->
+		select * from student where 1=1
+		<if test="stuName != null and stuName!= ''">
+			and stu_name like '%${stuName}%'
+		</if>
+		
+		<if test="stuBirthdate != null">
+			and stu_birthdate=#{stuBirthdate}
+		</if>
+	</select> 
+	
+
+
+
+</mapper>

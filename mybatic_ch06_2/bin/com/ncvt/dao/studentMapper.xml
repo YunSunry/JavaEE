@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ncvt.Mapper.Student">
+	
+	<!-- type类型 就是实体类 -->
+	<resultMap type="com.ncvt.domain.Student" id="studentResultMap">
+		<id column="stu_id" property="stuId" 	/>
+		<result column="stu_name" property="stuName" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result column="stu_birthdate" property="stuBirthdate" jdbcType="DATE" javaType="java.util.Date"/>
+		<result column="stu_phone" property="stuPhone" jdbcType="VARCHAR" javaType="java.lang.String"/>	
+	</resultMap>
+
+	<!-- namespace 为命名空间 这个映射文件是用来写sql操作数据的 -->
+	<insert id="insertStudent" parameterType="com.ncvt.domain.Student">
+		insert into student (stu_name,stu_birthdate,stu_phone)
+		value(#{stuName},#{stuBirthdate},#{stuPhone})
+	</insert>
+	
+	<delete id="deleteStudent" parameterType="java.lang.Integer">
+	delete from student where stu_id=#{stuId}
+	</delete>
+	
+	
+	<update id="updateStudent" parameterType="com.ncvt.domain.Student">
+		update student set
+		stu_name=#{stuName},stu_birthdate=#{stuBirthdate},stu_phone=#{stuPhone}
+		where stu_id=#{stuId}
+	</update>
+	
+	<select id="seleteStudentById" parameterType="java.lang.Integer" resultMap="studentResultMap">
+	select * from student where stu_id=#{stuId}
+	</select>
+	
+	
+	<select id="selectAllStudents"  resultMap="studentResultMap">
+		select * from student
+	</select>
+	
+	<!-- 返回总数记录 -->
+	<select id="getCount" resultType="java.lang.Integer">
+	select count(*) from student
+	</select>
+	
+	<!-- 如果设置返回类型为实体类型pojo 那么需要把列名（别名）和pojo类属性名保持一致 -->
+	 <select id="selectAllStudents2" resultType="com.ncvt.domain.Student">
+		select s.stu_id as stuId,s.stu_name as stuName,s.stu_birthdate as stuBirthdate,s.stu_phone as stuPhone from student s
+	</select>
+	
+	
+	<!-- HashMap 返回的数据类型是List<HashMap> -->
+	<select id="selectAllStudentToHashMap" resultType="java.util.HashMap">
+		select * from student
+	</select>
+	
+	
+	<select id="selectAllStudentByBirthdate" parameterType="java.util.HashMap" resultMap="studentResultMap">
+	<![CDATA[
+	SELECT * FROM student where stu_birthdate >= #{startDate} AND stu_birthdate <= #{endDate}
+	]]>
+	</select>
+	
+	
+	<!-- 统计 -->
+	<select id="selectStatistics" resultType="java.lang.Integer">
+		SELECT ${value} FROM student 
+	</select>
+	
+	
+	<!-- 模糊查询-->
+	<select id="selectStudentByName" resultMap="studentResultMap">
+		<!-- -->
+		select * from student where stu_name like '%${value}%'
+	</select> 
+	
+	
+	
+
+</mapper>

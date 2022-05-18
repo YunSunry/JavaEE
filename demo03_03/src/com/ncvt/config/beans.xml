@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="address" class="com.ncvt.entity.Address">
+        <property name="prov" value="山东省"></property>
+        <property name="city" value="济南市"></property>
+        <property name="street" value="历下区"></property>
+    </bean>
+    
+    
+    <bean id="user" class="com.ncvt.entity.User">
+        <property name="id" value="1100"></property>
+        <property name="name" value="scott"></property>
+        <property name="age" value="30"></property>
+        <property name="sal" value="9000.0"></property>
+        <property name="stunoArray">
+        	<list>
+        		<value>J17001</value>
+        		<value>J17002</value>
+        		<value>J17003</value>
+        		<value>J17004</value>
+        	</list> 	
+        </property>
+        
+        <property name="lists">
+        	<list>
+        		<value>JavaEE课程</value>
+        		<value>Flutter课程</value>
+        		<value>Android高级开发</value>
+        		<value>软件测试</value>
+        	</list> 	
+        </property>
+        
+        <property name="sets">
+        	<set>
+        		<value>阅读</value>
+        		<value>听音乐</value>
+        		<value>摄影</value>
+        	</set> 	
+        </property>
+        
+        
+          <property name="scoremaps">
+        	<map>
+        		<entry key="engligsh" value="90"></entry>
+        		<entry key="math" value="100"></entry>
+        	</map> 	
+        </property>
+        
+        <property name="address">
+        	<bean id="address" class="com.ncvt.entity.Address">
+		        <property name="prov" value="山东省"></property>
+		        <property name="city" value="济南市"></property>
+		        <property name="street" value="历下区"></property>
+    		</bean>
+        	 	
+        </property>
+        
+        
+       
+    </bean>
+
+
+</beans>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  
+	<bean id="user" class="com.ncvt.entity.User">
+		<property name="stuId" value="001"></property>
+		<property name="username" value="zhangsan"></property>
+		<property name="birth" ref="birth"></property>
+		<property name="age" value="19"></property>
+	</bean>
+	
+	<bean id="birth" class="java.util.Date"></bean>
+
+   
+</beans>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+     <bean id="department" class="com.ncvt.entity.Department">
+        <constructor-arg name="departid" value="经理部门"></constructor-arg>
+        <constructor-arg name="name" value="张三" />
+        <constructor-arg name="userid" value="001" />
+        <constructor-arg name="createdate" ref="dapartdate" />
+    </bean>
+	
+	<bean id="dapartdate" class="java.util.Date"></bean>
+
+	
+	 <bean id="drugsStorRecord" class="com.ncvt.entity.DrugsStorRecord">
+        <property name="id" value="002"></property>
+        <property name="drugsid" value="编号07125"></property>
+       	<property name="num" value="2"></property>
+        <property name="storagedate" ref="drugdate"></property>
+    </bean>
+	
+	<bean id="drugdate" class="java.util.Date"></bean>
+
+	
+
+
+</beans>

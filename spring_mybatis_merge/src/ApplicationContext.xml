@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+         http://www.springframework.org/schema/tx/spring-tx.xsd
+          http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- 加载外部文件 -->
+		<context:property-placeholder location="dbconfig.properties" />
+		
+		<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<!-- 属性赋值 -->
+			<property name="driverClassName" value="${db.driver}"></property>
+			<property name="url" value="${db.url}"></property>
+			<property name="username" value="${db.username}"></property>
+			<property name="password" value="${db.password}"></property>
+		</bean>
+		
+    <!-- 配置事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    	<property name="dataSource" ref="dataSource"></property>
+    </bean>
+    
+    
+    <!--  <tx:annotation-driven transaction-manager="transactionManager"/>-->
+   <!-- 扫描包名下的注解 -->
+    <context:component-scan base-package="com.ncvt"></context:component-scan>
+    
+   	
+   	<!-- 以下是mybatis框架整合配置 -->
+   	<!-- 如果是idea 则在前面添加classpath -->
+   	<import resource="mybatis-config.xml" />
+   	
+   	
+   	<!-- 命名 驼峰命名 -->
+   	<bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+   		<property name="dataSource" ref="dataSource"></property>
+   		<property name="configLocation" value="mybatis-config.xml"></property>
+   	</bean>
+   	
+		
+</beans>

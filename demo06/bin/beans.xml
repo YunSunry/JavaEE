@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+         http://www.springframework.org/schema/aop/spring-aop.xsd"
+        >
+
+    <!--第二步：告知spring 框架 自动扫描 com.ncvt路径下所有的类，有@注解的类就放入spring容器
+      -->
+	<bean id="calAspect" class="com.ncvt.util.CalAspect"></bean>
+	<bean id="orderService" class="com.ncvt.service.impl.OrderServiceImpl"></bean>
+	
+	<aop:config>
+		<aop:aspect id="myAspect" ref="calAspect">
+			<aop:pointcut expression="execution(* com.ncvt.service.impl.*.*(..))" id="myPointCut"/>
+			<aop:before method="beforeTime" pointcut-ref="myPointCut"/>
+			<aop:after method="afterReturnTime" pointcut-ref="myPointCut"/>
+		</aop:aspect>
+	</aop:config>
+
+	
+	
+	
+</beans>
