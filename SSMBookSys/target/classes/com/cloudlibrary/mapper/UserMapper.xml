@@ -23,6 +23,16 @@
     user_id, user_name, user_password, user_email, user_hiredate, user_role, user_departuredate, 
     user_status
   </sql>
+  
+  <!-- 用于登录的查询 -->
+  <select id="login" parameterType="com.cloudlibrary.domain.User" resultMap="BaseResultMap">
+ 	select 
+ 	<include refid="Base_Column_List" />
+ 	from user 
+ 	where user_email=#{userEmail} and user_password=#{userPassword} and user_status != '1'
+  </select>
+  
+  
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--
       WARNING - @mbg.generated

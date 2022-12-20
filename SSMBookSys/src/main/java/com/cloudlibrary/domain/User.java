@@ -272,5 +272,4 @@ public class User {
 				+ userDeparturedate + ", userStatus=" + userStatus + "]";
 	}
     
-    
 }

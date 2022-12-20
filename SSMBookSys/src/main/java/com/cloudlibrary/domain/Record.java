@@ -206,5 +206,4 @@ public class Record {
 				+ ", recordRemandtime=" + recordRemandtime + "]";
 	}
     
-    
 }

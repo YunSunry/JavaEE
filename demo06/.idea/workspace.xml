@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f115f750-17c6-42c7-88cc-8aec899036b5" name="变更" comment="">
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/.settings/.jsdtscope" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/.settings/.jsdtscope" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/.settings/org.eclipse.wst.common.project.facet.core.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/.settings/org.eclipse.wst.common.project.facet.core.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/src/main/java/com/cloudlibrary/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/src/main/java/com/cloudlibrary/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/src/main/java/com/cloudlibrary/dao/BookMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/src/main/java/com/cloudlibrary/dao/BookMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/src/main/java/com/cloudlibrary/dao/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/src/main/java/com/cloudlibrary/dao/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/src/main/java/com/cloudlibrary/domain/Record.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/src/main/java/com/cloudlibrary/domain/Record.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/src/main/java/com/cloudlibrary/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/src/main/java/com/cloudlibrary/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/src/main/java/com/cloudlibrary/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/src/main/java/com/cloudlibrary/service/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/src/main/java/com/cloudlibrary/service/impl/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/src/main/java/com/cloudlibrary/service/impl/BookServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/src/main/resources/com/cloudlibrary/mapper/BookMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/src/main/resources/com/cloudlibrary/mapper/BookMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/src/main/resources/com/cloudlibrary/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/src/main/resources/com/cloudlibrary/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/src/main/resources/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/src/main/resources/jdbc.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/src/main/resources/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/src/main/resources/spring-mvc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/src/main/resources/spring-mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/src/main/resources/spring-mybatis.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/src/main/webapp/admin/books.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/src/main/webapp/admin/books.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/src/main/webapp/js/my.js" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/src/main/webapp/js/my.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/target/classes/com/cloudlibrary/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/target/classes/com/cloudlibrary/controller/BookController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/target/classes/com/cloudlibrary/dao/BookMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/target/classes/com/cloudlibrary/dao/BookMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/target/classes/com/cloudlibrary/dao/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/target/classes/com/cloudlibrary/dao/UserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/target/classes/com/cloudlibrary/mapper/BookMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/target/classes/com/cloudlibrary/mapper/BookMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/target/classes/com/cloudlibrary/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/target/classes/com/cloudlibrary/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/target/classes/com/cloudlibrary/service/BookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/target/classes/com/cloudlibrary/service/BookService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/target/classes/com/cloudlibrary/service/impl/BookServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/target/classes/com/cloudlibrary/service/impl/BookServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/target/classes/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/target/classes/jdbc.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/target/classes/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/target/classes/spring-mvc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/target/classes/spring-mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/target/classes/spring-mybatis.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/target/m2e-wtp/web-resources/META-INF/maven/SSMBookSys/SSMBookSys/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/target/m2e-wtp/web-resources/META-INF/maven/SSMBookSys/SSMBookSys/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSMBookSys/target/m2e-wtp/web-resources/META-INF/maven/SSMBookSys/SSMBookSys/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SSMBookSys/target/m2e-wtp/web-resources/META-INF/maven/SSMBookSys/SSMBookSys/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Servers/Apache Tomcat v8.5 (2) at localhost-config/server.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Servers/Apache Tomcat v8.5 (2) at localhost-config/server.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo01/src/beans.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo01/src/beans.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_maven_1/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_maven_1/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_maven_1/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_maven_1/.settings/.jsdtscope" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_maven_1/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_maven_1/.settings/org.eclipse.m2e.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_maven_1/.settings/org.eclipse.wst.common.component" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_maven_1/.settings/org.eclipse.wst.common.project.facet.core.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_maven_1/.settings/org.eclipse.wst.jsdt.ui.superType.container" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_maven_1/.settings/org.eclipse.wst.jsdt.ui.superType.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_maven_1/.settings/org.eclipse.wst.validation.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_maven_1/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_maven_1/src/main/java/com/ncvt/controller/HelloController1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_maven_1/src/main/resources/spring-mvc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_maven_1/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_maven_1/src/main/webapp/index.jsp" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2GW0XSFMuHlrtYT35F0Gylcd7Ux" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="f115f750-17c6-42c7-88cc-8aec899036b5" name="变更" comment="" />
+      <created>1666489073856</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1666489073856</updated>
+      <workItem from="1666489075346" duration="31000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

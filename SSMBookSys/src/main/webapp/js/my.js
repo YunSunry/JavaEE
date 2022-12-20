@@ -56,14 +56,14 @@ function findBookById(id,doname) {
     $.get(url, function (response) {
         //如果是编辑图书，将获取的图书信息回显到编辑的窗口中
         if(doname=='edit'){
-            $("#ebid").val(response.data.id);
-            $("#ebname").val(response.data.name);
-            $("#ebisbn").val(response.data.isbn);
-            $("#ebpress").val(response.data.press);
-            $("#ebauthor").val(response.data.author);
-            $("#ebpagination").val(response.data.pagination);
-            $("#ebprice").val(response.data.price);
-            $("#ebstatus").val(response.data.status);
+            $("#ebid").val(response.data.bookId);
+            $("#ebname").val(response.data.bookName);
+            $("#ebisbn").val(response.data.bookIsbn);
+            $("#ebpress").val(response.data.bookPress);
+            $("#ebauthor").val(response.data.bookAuthor);
+            $("#ebpagination").val(response.data.bookPagination);
+            $("#ebprice").val(response.data.bookPrice);
+            $("#ebstatus").val(response.data.bookStatus);
         }
         //如果是借阅图书，将获取的图书信息回显到借阅的窗口中
         if(doname=='borrow'){
@@ -86,6 +86,7 @@ function addOrEdit() {
     if (ebid > 0) {
         var url = getProjectPath()+"/book/editBook";
         $.post(url, $("#addOrEditBook").serialize(), function (response) {
+        	console.log("response");
             alert(response.message)
             if (response.success == true) {
                 window.location.href = getProjectPath()+"/book/search";
@@ -103,6 +104,29 @@ function addOrEdit() {
         })
     }
 }
+
+//点击删除按钮时提示
+function deleteModel(){
+	//获取图书id
+	var ebid = $("#ebid").val();
+	if(ebid > 0){
+		var url = getProjectPath()+"/book/deleteBook";
+		$.post(url, $("#deleteBook").serialize(), function (response) {
+        	console.log("response");
+            alert(response.message)
+            //如果删除成功，回调
+            if (response.success == true) {
+                window.location.href = getProjectPath()+"/book/search";
+            }
+        })
+	} //如果表单中没有图书id，说明删除失败
+    else {
+        alert("删除失败")
+    }
+	
+}
+
+
 //归还图书时执行
 function returnBook(bid) {
     var r = confirm("确定归还图书?");
@@ -312,7 +336,7 @@ function delUser(uid) {
         cur: 1,
         total: 0,
         len: 5,
-        pagesize: 5,
+        pagesize: 10,
         gourl: "",
         targetId: 'pagination',
         callback: function (total) {
@@ -339,9 +363,9 @@ function delUser(uid) {
      * press 图书出版社
      */
     var bookVO = {
-        name: '',
-        author: '',
-        press: ''
+        bookName: '',
+        bookAuthor: '',
+        bookPress: ''
     }
     /**
      *借阅记录查询栏的查询参数
@@ -366,9 +390,9 @@ function delUser(uid) {
         document.write("<input type=hidden name='pageSize' value=" + pageargs.pagesize + " >");
         //如果跳转的是图书信息查询的相关链接，提交图书查询栏中的参数
         if (pageargs.gourl.indexOf("book") >= 0) {
-            document.write("<input type=hidden name='name' value=" + bookVO.name + " >");
-            document.write("<input type=hidden name='author' value=" + bookVO.author + " >");
-            document.write("<input type=hidden name='press' value=" + bookVO.press + " >");
+            document.write("<input type=hidden name='bookName' value=" + bookVO.bookName + " >");
+            document.write("<input type=hidden name='bookAuthor' value=" + bookVO.bookAuthor + " >");
+            document.write("<input type=hidden name='bookPress' value=" + bookVO.bookPress + " >");
         }
         //如果跳转的是图书记录查询的相关链接，提交图书记录查询栏中的参数
         if (pageargs.gourl.indexOf("user") >= 0) {

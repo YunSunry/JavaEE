@@ -34,9 +34,9 @@
     <div class="box-tools pull-right">
         <div class="has-feedback">
             <form action="${pageContext.request.contextPath}/book/search" method="post">
-                图书名称：<input name="name" value="${search.name}">&nbsp&nbsp&nbsp&nbsp
-                图书作者：<input name="author" value="${search.author}">&nbsp&nbsp&nbsp&nbsp
-                出版社：<input name="press" value="${search.press}">&nbsp&nbsp&nbsp&nbsp
+                图书名称：<input name="bookName" value="${search.bookName}">&nbsp&nbsp&nbsp&nbsp
+                图书作者：<input name="bookAuthor" value="${search.bookAuthor}">&nbsp&nbsp&nbsp&nbsp
+                出版社：<input name="bookPress" value="${search.bookPress}">&nbsp&nbsp&nbsp&nbsp
                 <input class="btn btn-default" type="submit" value="查询">
             </form>
         </div>
@@ -60,7 +60,7 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${result}" var="book">
+            <c:forEach items="${pageResult.datas}" var="book">
                 <tr>
                     <td> ${book.bookName}</td>
                     <td>${book.bookAuthor}</td>
@@ -79,11 +79,17 @@
                             <button type="button" class="btn bg-olive btn-xs" data-toggle="modal"
                                     data-target="#borrowModal" onclick="findBookById(${book.bookId},'borrow')"> 借阅
                             </button>
-                            <c:if test="${USER_SESSION.role =='ADMIN'}">
+                           <%--
+                             <c:if test="${USER_SESSION.role =='ADMIN'}"> --%>
                                 <button type="button" class="btn bg-olive btn-xs" data-toggle="modal"
                                         data-target="#addOrEditModal" onclick="findBookById(${book.bookId},'edit')"> 编辑
                                 </button>
-                            </c:if>
+                            <%--</c:if> --%>
+                            <button type="button" class="btn bg-olive btn-xs" data-toggle="modal"
+                                        data-target="#deleteModel" onclick="findBookById(${book.bookId},'delete')"> 删除
+                                </button>
+                            
+                           		
                         </c:if>
                         <c:if test="${book.bookStatus ==1 ||book.bookStatus ==2}">
                             <button type="button" class="btn bg-olive btn-xs" disabled="true">借阅</button>
@@ -102,6 +108,7 @@
 </div>
 <!-- /.box-body -->
 
+
 <!-- 添加和编辑图书的模态窗口 -->
 <div class="modal fade" id="addOrEditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
      aria-hidden="true">
@@ -112,31 +119,31 @@
             </div>
             <div class="modal-body">
                 <form id="addOrEditBook">
-                    <span><input type="hidden" id="ebid" name="id"></span>
+                    <span><input type="hidden" id="ebid" name="bookId"></span>
                     <table id="addOrEditTab" class="table table-bordered table-striped" width="800px">
                         <%--图书的id,不展示在页面--%>
                         <tr>
                             <td>图书名称</td>
-                            <td><input class="form-control" placeholder="图书名称" name="name" id="ebname"></td>
+                            <td><input class="form-control" placeholder="图书名称" name="bookName" id="ebname"></td>
                             <td>标准ISBN</td>
-                            <td><input class="form-control" placeholder="标准ISBN" name="isbn" id="ebisbn"></td>
+                            <td><input class="form-control" placeholder="标准ISBN" name="bookIsbn" id="ebisbn"></td>
                         </tr>
                         <tr>
                             <td>出版社</td>
-                            <td><input class="form-control" placeholder="出版社" name="press" id="ebpress"></td>
+                            <td><input class="form-control" placeholder="出版社" name="bookPress" id="ebpress"></td>
                             <td>作者</td>
-                            <td><input class="form-control" placeholder="作者" name="author" id="ebauthor"></td>
+                            <td><input class="form-control" placeholder="作者" name="bookAuthor" id="ebauthor"></td>
                         </tr>
                         <tr>
                             <td>书籍页数</td>
-                            <td><input class="form-control" placeholder="书籍页数" name="pagination" id="ebpagination"></td>
+                            <td><input class="form-control" placeholder="书籍页数" name="bookPagination" id="ebpagination"></td>
                             <td>书籍价格<br/></td>
-                            <td><input class="form-control" placeholder="书籍价格" name="price" id="ebprice"></td>
+                            <td><input class="form-control" placeholder="书籍价格" name="bookPrice" id="ebprice"></td>
                         </tr>
                             <tr>
                                 <td>上架状态</td>
                                 <td>
-                                    <select class="form-control" id="ebstatus" name="status" >
+                                    <select class="form-control" id="ebstatus" name="bookStatus" >
                                         <option value="0">上架</option>
                                         <option value="3">下架</option>
                                     </select>
@@ -157,16 +164,16 @@
 </body>
 <script>
     /*分页插件展示的总页数*/
-    //pageargs.total = Math.ceil(${pageResult.total}/pageargs.pagesize);
+    pageargs.total = Math.ceil(${pageResult.total}/pageargs.pagesize);
     /*分页插件当前的页码*/
-    //pageargs.cur = ${pageNum}
+    pageargs.cur = ${pageNum}
     /*分页插件页码变化时将跳转到的服务器端的路径*/
-    //pageargs.gourl = "${gourl}"
+    pageargs.gourl = "${gourl}"
     /*保存搜索框中的搜索条件，页码变化时携带之前的搜索条件*/
-    //bookVO.name = "${search.name}"
-    //bookVO.author = "${search.author}"
-    //bookVO.press = "${search.press}"
+    bookVO.bookName = "${search.bookName}"
+    bookVO.bookAuthor = "${search.bookAuthor}"
+    bookVO.bookPress = "${search.bookPress}"
     /*分页效果*/
-    //pagination(pageargs);
+    pagination(pageargs);
 </script>
 </html>

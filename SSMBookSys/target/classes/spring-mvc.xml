@@ -20,13 +20,15 @@
 	<mvc:resources location="/resources/**"
 		mapping="/resources" />
 
-<!-- 	<mvc:interceptors>
+	<!-- 拦截器 -->
+
+	<mvc:interceptors>
 		<mvc:interceptor>
-			拦截所有mvc控制器
+			  <!--  拦截所有mvc控制器 -->
 			<mvc:mapping path="/**" />
-			<bean class="com.cloudlibrary.interceptor.ResourcesInterceptor" />
+			<bean class="com.itheima.interceptor.ResourcesInterceptor" />
 		</mvc:interceptor>
-	</mvc:interceptors> -->
+	</mvc:interceptors>
 
 	<!-- 定义跳转的文件的前后缀 ，视图模式配置 -->
 	<bean

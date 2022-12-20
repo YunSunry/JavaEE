@@ -9,6 +9,14 @@
 	<name>SSMBookSys Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
+	
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		
 		<!--Spring核心容器 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -104,6 +112,8 @@
 			<artifactId>jackson-annotations</artifactId>
 			<version>2.9.0</version>
 		</dependency>
+
+
 		<!--日志开始 -->
 		<!--引入日志的门脸 -->
 		<dependency>
@@ -130,6 +140,7 @@
 			<version>4.10</version>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 	<build>
 		<finalName>SSMBookSys</finalName>
